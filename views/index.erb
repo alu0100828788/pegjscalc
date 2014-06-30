@@ -1,11 +1,12 @@
 <h1>Analizador de PL0 ampliado usando PEG.js</h1>
 <div id="content">
-  <p class="loadfile">
-    <input type="file" id="examples" />
-  </p>
+  <div class="loadfile">
+    <input type="file" class="hidden file" id="examples" />
+    <input class="styled file"/><p class="lfile">Load File</p>
+  </div>
   <p>
   <nav>
-  <ul>
+  <ul class="programs">
     <% programs.each do |p| %>
       <li><a href="<%= p.name %>" <%=current?('/'+p.name)%>><%= p.name %></a></li>
     <% end %>
@@ -15,26 +16,37 @@
     <tr>
       <td>
         <form action="/save" method="post">
-          <textarea id="input" name="input" 
-                    autofocus cols = "40" rows = "4">
+          <br>
+	  <div class="textar">
+            <textarea id="input" name="input"  autofocus cols = "40" rows = "4">
 <%= source %>
-          </textarea>
+            </textarea>
+	  </div>
           <br/>
           <label for="saveas">Save as</label>
-          <input id="saveas" type="text" name="fname" 
+          <input id="saveas" type="text" name="fname"
                  title="name" pattern="\w+" />
         </form>
-      </td>
-      <td><button id="parse" type="button">parse</button></td>
+      <br>
+      <button id="parse" type="button">parse</button>
     </tr>
   </table>
   </p>
   <div class="output">
     <pre>
-<span id="output"></span> <!-- Output goes here! --> 
+<span id="output"></span> <!-- Output goes here! -->
     </pre>
   </div>
 </div>
+
+<!-- Script para el CodeMirror -->
+<script>
+    // Generar un editor CodeMirror a partir del textarea INPUT (se borra y se reemplaza).
+    var editor = CodeMirror.fromTextArea(document.getElementById("input"), {
+      lineNumbers: true,
+      viewportMargin: Infinity
+    });
+</script>
 
 <script src="pl0.js"></script>
 <script src="main.js"></script>

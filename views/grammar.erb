@@ -20,38 +20,19 @@ Recuerde que un PEG $G$ es una cuaterna $G =(\Sigma,V,P,S)$.
   $V$ que se denomina <i>expresión de arranque</i>.
 </ol>
 <ol>
-  <li> $\Sigma = \{ if, then, else, =, +, -, *, /, (, ), 0 \ldots 9 \}$, 
-  <li> $V = \{ st, exp, term, factor \} \cup$ <br />
-  $\{ASSIGN, ADD, MUL, LEFTPAR, RIGHTPAR \} \cup$ <br />
-  $\{IF, THEN, ELSE, ID, NUMBER, \_ \}$
-  <li> Reglas de Análisis:
-  <ol>
-<pre>
-st     = ID ASSIGN exp
-       / IF exp THEN st ELSE st
-       / IF exp THEN st
-exp    = term   (ADD term)*
-term   = factor (MUL factor)*
-
-factor = NUMBER
-       / ID
-       / LEFTPAR exp RIGHTPAR
-
-_ = $[ \t\n\r]*
-
-ASSIGN   = _ '=' _
-ADD      = _ [+-] _
-MUL      = _ [*/] _
-LEFTPAR  = _"("_
-RIGHTPAR = _")"_
-IF       = _ "if" _
-THEN     = _ "then" _
-ELSE     = _ "else" _
-ID       = _ [a-zA-Z_][a-zA-Z_0-9]* _
-NUMBER   = _ [0-9]+ _
-</pre>
-  </ol>
-  <li> Expresión de arranque: $st$
+  <li> $\Sigma = \{ ID, NUM, CONST, ".", ",", =, ;, VAR, PROCEDURE, CALL, BEGIN, END, IF, THEN, ELSE, WHILE, DO, ODD, =, ==, !=, <, <=, >, >=, +, -, *, /, (, ) \}$, 
+  <li> $V = \{ program, block, statement, condition, expression, term, factor \}$  <br />
+  <li> Reglas de producción:
+    <ol>
+	  <li> $program \rightarrow block$ '.'
+      <li> $block \rightarrow$ $($'CONST' $ID$ '=' $NUM$ $($',' $ID$ '=' $NUM$$)$* ';'$)?$  $($'VAR' $ID$ $($',' $ID$$)$* ';'$)?$ $($'PROCEDURE' $ID$ $($'(' $( ID ($ ',' $ID )*)?$ ')'$)?$ ';' $block$ ';'$)*$ $statement$
+      <li> $statement \rightarrow$ $ID$ '=' $expression \vert$ 'CALL' $ID$ $($'(' $( (ID\vert NUM) ($ ',' $(ID\vert NUM) )*)?$ ')'$)?$ $\vert$ 'BEGIN' $statement$ $($';' $statement)*$ 'END' $\vert$ <br>'IF' $condition$ 'THEN' $statement$ 'ELSE' $statement$ $\vert$ 'IF' $condition$ 'THEN' $statement \vert$ 'WHILE' $condition$ 'DO' $statement$
+      <li> $condition \rightarrow$ 'ODD' $expression \vert expression$ $($'=='$\vert$'!='$\vert$'<'$\vert$'<='$\vert$'>'$\vert$'>='$)$ $expression$
+      <li> $expression \rightarrow$ $($'+'$\vert$'-'$)?$ $term$ $(($'+'$\vert$'-'$)$ $term)*$
+      <li> $term \rightarrow factor$ $(($'*'$\vert$'/'$)$ $factor)*$
+      <li>  $factor \rightarrow$ $ID$ $\vert$ $NUM$ $\vert$ '(' $expression$ ')'
+    </ol>
+  <li> Expresión de arranque: $program$
 </ol>
 <BR>
 <BR>

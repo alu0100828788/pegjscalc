@@ -23,9 +23,14 @@ helpers do
   end
 end
 
+get('/styles.css'){ scss :styles }
 
 get '/grammar' do
   erb :grammar
+end
+
+get '/test' do
+  erb :test
 end
 
 get '/:selected?' do |selected|
@@ -33,7 +38,7 @@ get '/:selected?' do |selected|
   pp programs
   puts "selected = #{selected}"
   c  = PL0Program.first(:name => selected)
-  source = if c then c.source else "a = 3-2-1" end
+  source = if c then c.source else "a = 3-2-1." end
   erb :index, 
       :locals => { :programs => programs, :source => source }
 end
@@ -41,16 +46,22 @@ end
 post '/save' do
   pp params
   name = params[:fname]
-  c  = PL0Program.first(:name => name)
-  puts "prog <#{c.inspect}>"
-  if c
-    c.source = params["input"]
-    c.save
-  else
-    c = PL0Program.new
-    c.name = params["fname"]
-    c.source = params["input"]
-    c.save
+  if name != "test"
+    c  = PL0Program.first(:name => name)
+    puts "prog <#{c.inspect}>"
+    if c
+      c.source = params["input"]
+      c.save
+    else
+      if PL0Program.all.size > 9
+        c = PL0Program.all.sample
+        c.destroy
+      end
+      c = PL0Program.new
+      c.name = params["fname"]
+      c.source = params["input"]
+      c.save
+    end
   end
   pp c
   redirect '/'
