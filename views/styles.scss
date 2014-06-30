@@ -5,13 +5,13 @@ $blue: #002EB8;
 $main-font: Helvetica, Arial, sans-serif;
 
 body {
-  font-family: $main-font;
-  background-image:url('background.jpg');
-}
+  font-family: $main-font;}
+ 
 
 h1 {
-  color: $red;
+  color: $blue;
   font: 32px/1 $main-font;
+  text-align: left;
 }
 
 header h1 {
