@@ -79,13 +79,21 @@ nav a.current {
   }
   input {
     background: $red url(/images/like.png) 0 2px no-repeat;
-    border: darken($red, 10%) 1px solid;
+    border: darken($red, 10%) 3px solid;
     height: 28px;
     padding-left: 24px;
   }
 }
 
-.loadfile {
+
+label {
+color: brown;
+font-weight: bold;
+width: 130px;
+padding: 8px;
+}
+
+div.loadfile {
   background-color: $black;
   border-radius: 5px;
   border: 2px solid #DDD;
