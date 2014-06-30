@@ -6,7 +6,7 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
-  background-image:url('background.jpg') 0 0 no-repeat;
+  background-image:url('background.jpg') no-repeat;
 }
  
 h1 {
@@ -94,17 +94,36 @@ width: 130px;
 padding: 8px;
 }
 
-div.loadfile {
+div.loadfile { background:linear-gradient(135deg, #4c4c4c 0%,#666666 0%,#595959 0%,#474747 60%,#000000 74%,#000000 84%,#000000 97%,#1c1c1c 99%,#111111 100%,#111111 100%,#2b2b2b 100%,#000000 100%,#131313 100%,#111111 101%); 
+
   background-color: yellow;
-  border-radius: 25px;
+  border-radius: 30px;
   border: 4px shadow #DDD;
   line-height: 100px;
   text-align: left;
- 
   height: 30px;
   padding: 10px;
+  .lfile{
+    position: absolute;
+    left: 80px;
+    top: 140px;
+    font-weight: bolder;
+    z-index: 5;
+  }
 
-  button, input {
+  input.hidden.file {
+    float: left;
+    list-style: none;
+    position: relative;
+    display: inline;
+    text-align: center;
+    font-weight: bolder;
+    opacity: 0;
+    z-index: 2;
+  }
+ 
+ 
+ button, input {
     color: $black;
     float: left;
     list-style: none;
