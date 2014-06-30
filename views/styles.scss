@@ -9,20 +9,20 @@ body {
  
 
 h1 {
-  color: $blue;
+  color: $black;
   font: 32px/1 $main-font;
-  text-align: left;
+  text-align: center;
 }
 
 header h1 {
-  font-size: 40px;
+  font-size: 300px;
   line-height: 80px;
   background: transparent url(/images/logo.png) 0 0 no-repeat;
   background-size:5% 70%;
   padding-left: 84px;
 }
 
-@mixin tabs ($background: blue, $color: yellow) {
+@mixin tabs ($background: red, $color: green) {
   ul {
     list-style: none;
     margin: 0;
@@ -46,7 +46,7 @@ header h1 {
 }
 
 nav {
-  @include tabs ($background: $black, $color: $white);
+  @include tabs ($background: $blue, $color: $white);
   font-weight: bold;
 }
 
@@ -59,17 +59,17 @@ label {
 }
 
 nav a.current {
-  background: lighten($black, 50%);
+  background: lighten($red, 50%);
 }
 
 .flash {
   width: 600px;
   padding: 5px;
   font-weight: bold;
-  margin: 20px;
-  background: lighten($red, 60%);
-  color: $red;
-  border: 1px solid $red;
+  margin: 30px;
+  background: lighten($black, 60%);
+  color: $black;
+  border: 3px solid $black;
 }
 
 #like {
