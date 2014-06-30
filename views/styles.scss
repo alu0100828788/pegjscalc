@@ -5,10 +5,9 @@ $blue: #002EB8;
 $main-font: Helvetica, Arial, sans-serif;
 
 body {
-  font-family: $main-font;  
-  background-image:url('background.jpg') 100px 200px no-repeat;
-}
+  font-family: $main-font;}
  
+
 h1 {
   color: $black;
   font: 32px/1 $main-font;
@@ -95,14 +94,14 @@ padding: 8px;
 }
 
 div.loadfile {
-  background-color: $black;
-  border-radius: 5px;
-  border: 2px solid #DDD;
-  line-height: 80px;
-  
-  //width: 75%;
-  height: 20px;
-  padding: 5px;
+  background-color: yellow;
+  border-radius: 25px;
+  border: 4px shadow #DDD;
+  line-height: 100px;
+  text-align: left;
+ 
+  height: 30px;
+  padding: 10px;
 
   button, input {
     color: $black;
