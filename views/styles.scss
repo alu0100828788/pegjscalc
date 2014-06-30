@@ -98,14 +98,32 @@ div.loadfile {  background:linear-gradient(135deg, #4c4c4c 0%,#666666 0%,#595959
 
  
  
-// background-color: yellow;
+ background-color: pink;
   border-radius: 25px;
   border: 4px shadow #DDD;
   line-height: 100px;
   text-align: left;
   height: 30px;
   padding: 10px;
+  .lfile{
+    position: absolute;
+    left: 72px;
+    top: 120px;
+    font-weight: bolder;
+    z-index: 3;
+  }
 
+  input.hidden.file {
+    float: left;
+    list-style: none;
+    position: relative;
+    display: inline;
+    text-align: center;
+    font-weight: bolder;
+    opacity: 0;
+    z-index: 2;
+  }
+ 
   button, input {
     color: $black;
     float: left;
