@@ -5,9 +5,10 @@ $blue: #002EB8;
 $main-font: Helvetica, Arial, sans-serif;
 
 body {
-  font-family: $main-font;}
+  font-family: $main-font;
+  background-image:url('background.jpg') 0 0 no-repeat;
+}
  
-
 h1 {
   color: $black;
   font: 32px/1 $main-font;
