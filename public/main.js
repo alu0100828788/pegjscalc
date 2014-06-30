@@ -1,7 +1,10 @@
 $(document).ready(function() {
   $('#parse').click(function() {
     try {
-      var result = pl0.parse($('#input').val());
+      var editor = $('.CodeMirror')[0].CodeMirror;
+	  var source = editor.getValue();
+	  
+      var result = pl0.parse(source);
       $('#output').html(JSON.stringify(result,undefined,2));
     } catch (e) {
       $('#output').html('<div class="error"><pre>\n' + String(e) + '\n</pre></div>');
@@ -14,7 +17,9 @@ $(document).ready(function() {
     r.onload = function(e) { 
       var contents = e.target.result;
       
-      input.innerHTML = contents;
+      //input.innerHTML = contents;
+	  var editor = $('.CodeMirror')[0].CodeMirror;
+	  editor.setValue(contents);
     }
     r.readAsText(f);
   });
