@@ -106,8 +106,8 @@ div.loadfile { /* background:linear-gradient(135deg, #4c4c4c 0%,#666666 0%,#5959
   padding: 10px;
   .lfile{
     position: absolute;
-    left: 80px;
-    top: 110px;
+    left: 70px;
+    top: 100px;
     font-weight: bolder;
     z-index: 3;
   }
@@ -151,10 +151,10 @@ div.loadfile { /* background:linear-gradient(135deg, #4c4c4c 0%,#666666 0%,#5959
   width: 500px;
   padding: 15px;
   border-color: red;
-  border-style: shadow;
+  border-style: dotted;
   border-width: thin;
   border-radius: 10px;
-  padding: 5px;
+  padding: 2px;
 }
 
 .programs {
